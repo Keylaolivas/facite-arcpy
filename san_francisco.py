@@ -31,8 +31,29 @@ with arcpy.da.SearchCursor(resultado, ["POP10", "STOPID", "NAME"]) as cursor:
         # sino existe en el diccionario lo agregamos
             interseccion_datos[stop_id] = [pop10]
         else:
-            #si ya estaba gregado en el diccionario entoces spñp agregamos el pop10
+            #si ya estaba gregado en el diccionario entoces solo agregamos el pop10
             interseccion_datos[stop_id].append(pop10)
 
 print "informacion del Diccionario"
 print interseccion_datos
+
+with open('resultado_interseccion.csv', 'wb') as archivo_csv:
+    csvwriter = csv.writer(archivo_csv, delimiter = ',')
+    csvwriter.writerow(['STOPID', 'PROMEDIO'])
+    for i in interseccion_datos.keys():
+        pop10_list = interseccion_datos[i]
+        promedio = sum(pop10_list) / len(pop10_list)
+        nombre_parada_autobus = ""
+
+        with arcpy.da.SearchCursor(parada_autobuses, ["STOPID", "BUS_SIGNAG"]) as cursor:
+            for fila in cursor:
+                if fila[0] == i:
+                    nombre_parada_autobus = cursor[1]
+                    break
+
+        csvwriter.writerow([i, promedio, nombre_parada_autobus])
+print "Archivo csv generado"
+
+
+
+
