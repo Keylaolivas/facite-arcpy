@@ -5,21 +5,24 @@ import csv
 
 arcpy.env.overwriteOutput = True
 
-parada_autobuses =r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Bus_Stops"
-censo = r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\CensusBlocks2010"
-seleccion_paradas= r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Seleccion"
-buffer =  r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Buffer"
-resultado =  r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Interseccioncenso"
+parada_autobuses = arcpy.GetParameterAsText(0) #r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Bus_Stops"
+censo = arcpy.GetParameterAsText(1) #r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\CensusBlocks2010"
+seleccion_paradas= arcpy.GetParameterAsText(2)#r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Seleccion"
+buffer =  arcpy.GetParameterAsText(3) #r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Buffer"
+resultado =  arcpy.GetParameterAsText(4) #r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Interseccioncenso"
+resultado_csv = arcpy.GetParameterAsText(5)
 
 
-'''
 arcpy.Select_analysis(parada_autobuses, seleccion_paradas, "NAME = '14 OB' AND BUS_SIGNAG = 'Lowell St.'")
+arcpy.AddMessage("seleccion finalizada modificado")
 print "seleccion finalizada"
 arcpy.Buffer_analysis(seleccion_paradas, buffer, "100 Meters")
+arcpy.AddMessage("buffer finalizado")
 print "buffer finalizado"
 arcpy.Intersect_analysis([censo, buffer], resultado)
+arcpy.AddMessage("Interseccion finalizada")
 print "Interseccion finalizada"
-'''
+
 
 interseccion_datos = { }
 with arcpy.da.SearchCursor(resultado, ["POP10", "STOPID", "NAME"]) as cursor:
@@ -37,7 +40,7 @@ with arcpy.da.SearchCursor(resultado, ["POP10", "STOPID", "NAME"]) as cursor:
 print "informacion del Diccionario"
 print interseccion_datos
 
-with open('resultado_interseccion.csv', 'wb') as archivo_csv:
+with open(resultado_csv, 'wb') as archivo_csv:
     csvwriter = csv.writer(archivo_csv, delimiter = ',')
     csvwriter.writerow(['STOPID', 'PROMEDIO'])
     for i in interseccion_datos.keys():
@@ -52,6 +55,7 @@ with open('resultado_interseccion.csv', 'wb') as archivo_csv:
                     break
 
         csvwriter.writerow([i, promedio, nombre_parada_autobus])
+arcpy.AddMessage("Archivo csv generado")
 print "Archivo csv generado"
 
 
