@@ -5,10 +5,12 @@ class HerramientaClass3(object):
     """Implementation for herramienta_addin.tool (Tool)"""
     def __init__(self):
         self.enabled = True
+        self.cursor = 3
         self.shape = "NONE" # Can set to "Line", "Circle" or "Rectangle" for interactive shape drawing and to activate the onLine/Polygon/Circle event sinks.
     def onMouseDown(self, x, y, button, shift):
         pass
     def onMouseDownMap(self, x, y, button, shift):
+        #pythonaddins.MessageBox("x:" + str(x) + "y:" + str(y), "Coordenadas")
         pass
     def onMouseUp(self, x, y, button, shift):
         pass
@@ -19,7 +21,7 @@ class HerramientaClass3(object):
     def onMouseMoveMap(self, x, y, button, shift):
         pass
     def onDblClick(self):
-        pass
+        pythonaddins.MessageBox("Hola", "Heramienta")
     def onKeyDown(self, keycode, shift):
         pass
     def onKeyUp(self, keycode, shift):
