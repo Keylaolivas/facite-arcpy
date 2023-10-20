@@ -3,7 +3,7 @@ import arcpy
 
 import csv
 
-arcpy.env.overwriteOutput = True
+arcpy.env.overwriteOutput = True  |
 
 parada_autobuses = arcpy.GetParameterAsText(0) #r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\Bus_Stops"
 censo = arcpy.GetParameterAsText(1) #r"C:\Users\FOTO_03\PycharmProjects\facite-arcpy\RECURSOS\Data\SanFrancisco.gdb\CensusBlocks2010"
