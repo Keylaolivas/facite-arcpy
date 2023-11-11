@@ -2,3 +2,37 @@ FID,NOM_MUN,NOM_ENT,MUN_SELECCIONADO
 0,Aguascalientes,Aguascalientes,Aguascalientes
 1,Asientos,Aguascalientes,Aguascalientes
 2,Calvillo,Aguascalientes,Aguascalientes
+4,Jesús María,Aguascalientes,Aguascalientes
+9,El Llano,Aguascalientes,Aguascalientes
+10,San Francisco de los Romo,Aguascalientes,Aguascalientes
+570,Encarnación de Díaz,Jalisco,Aguascalientes
+588,Lagos de Moreno,Jalisco,Aguascalientes
+626,Teocaltiche,Jalisco,Aguascalientes
+649,Villa Hidalgo,Jalisco,Aguascalientes
+0,Aguascalientes,Aguascalientes,Asientos
+1,Asientos,Aguascalientes,Asientos
+5,Pabellón de Arteaga,Aguascalientes,Asientos
+8,Tepezalá,Aguascalientes,Asientos
+9,El Llano,Aguascalientes,Asientos
+10,San Francisco de los Romo,Aguascalientes,Asientos
+599,Ojuelos de Jalisco,Jalisco,Asientos
+2428,Loreto,Zacatecas,Asientos
+2456,Villa García,Zacatecas,Asientos
+0,Aguascalientes,Aguascalientes,Calvillo
+2,Calvillo,Aguascalientes,Calvillo
+4,Jesús María,Aguascalientes,Calvillo
+7,San José de Gracia,Aguascalientes,Calvillo
+649,Villa Hidalgo,Jalisco,Calvillo
+2422,Huanusco,Zacatecas,Calvillo
+2448,Tabasco,Zacatecas,Calvillo
+2459,Villanueva,Zacatecas,Calvillo
+3,Cosío,Aguascalientes,Cosío
+6,Rincón de Romos,Aguascalientes,Cosío
+2412,Cuauhtémoc,Zacatecas,Cosío
+2429,Luis Moya,Zacatecas,Cosío
+0,Aguascalientes,Aguascalientes,Jesús María
+2,Calvillo,Aguascalientes,Jesús María
+4,Jesús María,Aguascalientes,Jesús María
+5,Pabellón de Arteaga,Aguascalientes,Jesús María
+7,San José de Gracia,Aguascalientes,Jesús María
+10,San Francisco de los Romo,Aguascalientes,Jesús María
